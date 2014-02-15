@@ -9,7 +9,7 @@ RUN apt-get install -y software-properties-common
 RUN apt-get install -y curl git htop unzip vim wget
 
 # Puppet
-RUN wget http://apt.puppetlabs.com/puppetlabs-release-precise.deb
+RUN wget http://apt.puppetlabs.com/puppetlabs-release-raring.deb
 RUN dpkg -i puppetlabs-release-precise.deb
 RUN rm puppetlabs-release-precise.deb
 
