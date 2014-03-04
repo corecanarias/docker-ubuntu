@@ -11,7 +11,6 @@ RUN apt-get install -y curl git htop unzip vim wget supervisor
 RUN apt-get install -y openssh-server
 RUN mkdir /root/.ssh
 RUN mkdir -p /var/run/sshd
-ADD authorized_keys /root/.ssh/authorized_keys
 
 #Supervisor
 RUN mkdir -p /var/log/supervisor
