@@ -5,17 +5,21 @@ RUN apt-get update
 
 # Install basic packages.
 RUN apt-get install -y dialog
-RUN apt-get install -y software-properties-common
-RUN apt-get install -y curl git htop unzip vim wget
+RUN apt-get install -y curl git htop unzip vim wget supervisor
 
-# Puppet
-RUN wget http://apt.puppetlabs.com/puppetlabs-release-raring.deb
-RUN dpkg -i puppetlabs-release-precise.deb
-RUN rm puppetlabs-release-precise.deb
+# ssh
+RUN apt-get install -y openssh-server
+RUN mkdir /root/.ssh
+RUN mkdir -p /var/run/sshd
+ADD authorized_keys /root/.ssh/authorized_keys
 
-RUN apt-get install -y puppet-common
-RUN apt-get install -y puppet
+#Supervisor
+RUN mkdir -p /var/log/supervisor
+ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Set working directory.
 ENV HOME /root
 WORKDIR /root
+
+EXPOSE 22
+CMD ["/usr/bin/supervisord"]
