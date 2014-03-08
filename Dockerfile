@@ -5,7 +5,7 @@ RUN apt-get update
 
 # Install basic packages.
 RUN apt-get install -y dialog
-RUN apt-get install -y curl git htop unzip vim wget supervisor
+RUN apt-get install -y curl git htop unzip vim wget supervisor dnsmasq
 
 # ssh
 RUN apt-get install -y openssh-server
