@@ -1,4 +1,4 @@
-FROM ubuntu:raring
+FROM ubuntu:trusty
 MAINTAINER corecanarias
 
 RUN apt-get update
